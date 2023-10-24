@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "139571992609",
+    "project_id": "quantum-apps-56ee4",
+    "storage_bucket": "quantum-apps-56ee4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139571992609:android:89637e861a787ff87deb60",
+        "android_client_info": {
+          "package_name": "com.example.flutter_seller_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_uCIy2ip2eEWXCPx2xHfH1d8BiNQnTF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
