@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_seller_app/common/global_variables.dart';
 
 import 'package:flutter_seller_app/data/models/products_response_model.dart';
 import 'package:flutter_seller_app/utils/price_ext.dart';
@@ -35,7 +36,6 @@ class _ProductWidgetState extends State<ShopProductWidget> {
 
   @override
   void initState() {
-    
     super.initState();
   }
 
@@ -86,7 +86,9 @@ class _ProductWidgetState extends State<ShopProductWidget> {
                                 child: ClipRRect(
                                     borderRadius: BorderRadius.circular(
                                         Dimensions.paddingSizeSmall),
-                                    child: CustomImage(image: widget.product.imageProduct))),
+                                    child: CustomImage(
+                                        image: GlobalVariables.baseUrl +
+                                            widget.product.imageProduct))),
                             const SizedBox(
                                 height: Dimensions.paddingSizeExtraSmall),
                             Text(
@@ -145,7 +147,8 @@ class _ProductWidgetState extends State<ShopProductWidget> {
                                       style: robotoRegular.copyWith(
                                           color: Theme.of(context).hintColor),
                                     ),
-                                    Text('${widget.product.price}'.formatPrice(),
+                                    Text(
+                                        '${widget.product.price}'.formatPrice(),
                                         style: robotoMedium.copyWith(
                                             color: ColorResources.titleColor(
                                                 context)))
