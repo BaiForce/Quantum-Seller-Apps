@@ -18,7 +18,17 @@ class _SellerProductPageState extends State<SellerProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: 'Product List'),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: PreferredSize(
+          preferredSize: Size.fromHeight(50),
+          child: Image.asset(
+            Images.logoWithNameImage,
+            height: 50,
+          ),
+        ),
+      ),
       body: Column(
         children: [
           SizedBox(
@@ -27,22 +37,23 @@ class _SellerProductPageState extends State<SellerProductPage> {
               color: Theme.of(context).cardColor,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(
-                    Dimensions.paddingSizeDefault,
-                    Dimensions.paddingSizeDefault,
-                    Dimensions.paddingSizeDefault,
-                    Dimensions.paddingSizeDefault),
+                  Dimensions.paddingSizeDefault,
+                  Dimensions.paddingSizeDefault,
+                  Dimensions.paddingSizeDefault,
+                  Dimensions.paddingSizeDefault,
+                ),
                 child: CustomSearchField(
                   controller: searchController,
                   hint: 'Search',
                   prefix: Images.iconsSearch,
-                  iconPressed: () => () {},
-                  onSubmit: (text) => () {},
+                  iconPressed: () {},
+                  onSubmit: (text) {},
                   onChanged: (value) {},
                 ),
               ),
             ),
           ),
-          Expanded(child: AllProductWidget())
+          Expanded(child: AllProductWidget()),
         ],
       ),
     );

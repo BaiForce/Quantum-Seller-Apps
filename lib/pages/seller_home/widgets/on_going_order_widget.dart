@@ -28,8 +28,8 @@ class OngoingOrderWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding:  EdgeInsets.symmetric(
-                horizontal: Dimensions.paddingSizeMedium),
+            padding:
+                EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeMedium),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -101,55 +101,50 @@ class OngoingOrderWidget extends StatelessWidget {
             ),
           ),
           Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                        Dimensions.paddingSizeSmall,
-                        0,
-                        Dimensions.paddingSizeSmall,
-                        Dimensions.fontSizeSmall),
-                    child: GridView.count(
-                      physics: const NeverScrollableScrollPhysics(),
-                      crossAxisCount: 2,
-                      childAspectRatio: (1 / .65),
-                      shrinkWrap: true,
-                      padding: EdgeInsets.zero,
-                      children: [
-                        OrderTypeButtonHead(
-                          color: ColorResources.mainCardOneColor(context),
-                          text: 'Pending',
-                          index: 1,
-                          subText: 'Orders',
-                          numberOfOrder: 3,
-                          callback: callback,
-                        ),
-                        OrderTypeButtonHead(
-                          color: ColorResources.mainCardTwoColor(context),
-                          text: 'Packaging',
-                          index: 2,
-                          numberOfOrder: 4,
-                          callback: callback,
-                          subText: 'Order',
-                        ),
-                        OrderTypeButtonHead(
-                          color: ColorResources.mainCardThreeColor(context),
-                          text: 'Confirmed',
-                          index: 7,
-                          subText: 'Order',
-                          numberOfOrder: 5,
-                          callback: callback,
-                        ),
-                        OrderTypeButtonHead(
-                          color: ColorResources.mainCardFourColor(context),
-                          text: 'Out of Delivery',
-                          index: 8,
-                          subText: '',
-                          numberOfOrder: 6,
-                          callback: callback,
-                        ),
-                      ],
-                    ),
-                  ),
-                
-             
+            padding: const EdgeInsets.fromLTRB(Dimensions.paddingSizeSmall, 0,
+                Dimensions.paddingSizeSmall, Dimensions.fontSizeSmall),
+            child: GridView.count(
+              physics: const NeverScrollableScrollPhysics(),
+              crossAxisCount: 2,
+              childAspectRatio: (1 / .65),
+              shrinkWrap: true,
+              padding: EdgeInsets.zero,
+              children: [
+                OrderTypeButtonHead(
+                  color: ColorResources.mainCardOneColor(context),
+                  text: 'Pending',
+                  index: 1,
+                  subText: 'Orders',
+                  numberOfOrder: 3,
+                  callback: callback,
+                ),
+                OrderTypeButtonHead(
+                  color: ColorResources.mainCardTwoColor(context),
+                  text: 'Packaging',
+                  index: 2,
+                  numberOfOrder: 4,
+                  callback: callback,
+                  subText: 'Order',
+                ),
+                OrderTypeButtonHead(
+                  color: ColorResources.mainCardThreeColor(context),
+                  text: 'Confirmed',
+                  index: 7,
+                  subText: 'Order',
+                  numberOfOrder: 5,
+                  callback: callback,
+                ),
+                OrderTypeButtonHead(
+                  color: ColorResources.mainCardFourColor(context),
+                  text: 'Out of Delivery',
+                  index: 8,
+                  subText: '',
+                  numberOfOrder: 6,
+                  callback: callback,
+                ),
+              ],
+            ),
+          ),
           const SizedBox(height: Dimensions.paddingSizeSmall),
         ],
       ),

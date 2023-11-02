@@ -244,7 +244,12 @@ class _SellerAddProductPageState extends State<SellerAddProductPage> {
               const SizedBox(
                 height: Dimensions.paddingSizeExtraSmall,
               ),
-              BlocBuilder<CategoriesBloc, CategoriesState>(
+              BlocConsumer<CategoriesBloc, CategoriesState>(
+                listener: (context, state) {
+                  state.whenOrNull(loaded: (data) {
+                    selectCategory = selectCategory ?? data.data.first;
+                  });
+                },
                 builder: (context, state) {
                   return state.maybeWhen(
                     orElse: () {
@@ -254,7 +259,7 @@ class _SellerAddProductPageState extends State<SellerAddProductPage> {
                       child: LinearProgressIndicator(),
                     ),
                     loaded: (data) {
-                      selectCategory = selectCategory ?? data.data.first;
+                      // selectCategory = selectCategory ?? data.data.first;
                       return Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: Dimensions.paddingSizeSmall),

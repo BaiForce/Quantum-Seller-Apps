@@ -29,7 +29,7 @@ class _SellerHomePageState extends State<SellerHomePage> {
             centerTitle: false,
             automaticallyImplyLeading: false,
             backgroundColor: Theme.of(context).highlightColor,
-            title: Image.asset(Images.logoWithNameImage, height: 35),
+            title: Image.asset(Images.logoWithNameImage, height: 50),
           ),
           const SliverToBoxAdapter(
             child: Column(

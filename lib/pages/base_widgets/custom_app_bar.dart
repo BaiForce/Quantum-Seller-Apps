@@ -4,7 +4,7 @@ import '../../utils/custom_themes.dart';
 import '../../utils/dimensions.dart';
 import '../../utils/images.dart';
 
-class CustomAppBar extends StatelessWidget  implements PreferredSizeWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final bool isBackButtonExist;
   final IconData? icon;
@@ -14,7 +14,7 @@ class CustomAppBar extends StatelessWidget  implements PreferredSizeWidget {
   const CustomAppBar(
       {Key? key,
       required this.title,
-      this.isBackButtonExist = true,
+      this.isBackButtonExist = false,
       this.icon,
       this.onActionPressed,
       this.onBackPressed})
@@ -42,7 +42,7 @@ class CustomAppBar extends StatelessWidget  implements PreferredSizeWidget {
           isBackButtonExist
               ? IconButton(
                   icon: const Icon(Icons.arrow_back_ios,
-                      size: 20, color: Colors.black),
+                      size: 1, color: Colors.white),
                   onPressed: () => onBackPressed != null
                       ? onBackPressed!()
                       : Navigator.of(context).pop(),
@@ -54,7 +54,7 @@ class CustomAppBar extends StatelessWidget  implements PreferredSizeWidget {
               title ?? 'Electronic',
               style: titilliumRegular.copyWith(
                 fontSize: 20,
-                color: Colors.black,
+                color: Colors.blue,
               ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -71,8 +71,7 @@ class CustomAppBar extends StatelessWidget  implements PreferredSizeWidget {
       ),
     ]);
   }
-  
+
   @override
   Size get preferredSize => const Size(double.maxFinite, 50);
-  
 }

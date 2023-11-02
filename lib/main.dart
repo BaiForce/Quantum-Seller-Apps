@@ -72,6 +72,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
           title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
           theme: light,
           home: FutureBuilder<bool>(
             future: AuthLocalDatasource().isLogin(),

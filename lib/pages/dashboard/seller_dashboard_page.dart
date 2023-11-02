@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_seller_app/bloc/logout/logout_bloc.dart';
+import 'package:flutter_seller_app/data/datasources/auth_local_datasource.dart';
+import 'package:flutter_seller_app/pages/auth/auth_page.dart';
 
 import '../../utils/images.dart';
 import '../seller_home/seller_home_page.dart';
@@ -26,6 +30,47 @@ class _HomePageState extends State<SellerDashboardPage> {
     _screens = [
       const SellerHomePage(),
       const SellerProductPage(),
+      Center(
+        child: BlocConsumer<LogoutBloc, LogoutState>(
+          listener: (context, state) {
+            state.maybeWhen(
+              orElse: () {},
+              loaded: (message) {
+                AuthLocalDatasource().removeAuthData();
+                Navigator.pushAndRemoveUntil(context,
+                    MaterialPageRoute(builder: (context) {
+                  return const AuthPage();
+                }), (route) => false);
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text('Logout Successfully'),
+                  backgroundColor: Colors.blue,
+                ));
+              },
+              error: (message) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(message),
+                  backgroundColor: Colors.red,
+                ));
+              },
+            );
+          },
+          builder: (context, state) {
+            return state.maybeWhen(
+              orElse: () {
+                return ElevatedButton(
+                  onPressed: () {
+                    context.read<LogoutBloc>().add(const LogoutEvent.logout());
+                  },
+                  child: const Text('Logout'),
+                );
+              },
+              loading: () => const Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          },
+        ),
+      ),
     ];
   }
 
@@ -47,7 +92,8 @@ class _HomePageState extends State<SellerDashboardPage> {
       body: PageView.builder(
         controller: _pageController,
         itemCount: _screens.length,
-        physics: const NeverScrollableScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
+        // physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return _screens[index];
         },
@@ -57,9 +103,17 @@ class _HomePageState extends State<SellerDashboardPage> {
 
   void _setPage(int pageIndex) {
     setState(() {
-      _pageController.jumpToPage(pageIndex);
+      _pageController.animateToPage(
+        pageIndex,
+        duration: Duration(milliseconds: 500), // Adjust the duration as needed
+        curve: Curves.easeInOut, // Use the desired animation curve
+      );
       _pageIndex = pageIndex;
     });
+    // setState(() {
+    //   _pageController.jumpToPage(pageIndex);
+    //   _pageIndex = pageIndex;
+    // });
   }
 
   BottomNavigationBarItem _barItem(String icon, String? label, int index) {
