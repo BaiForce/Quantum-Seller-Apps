@@ -54,7 +54,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               title ?? 'Electronic',
               style: titilliumRegular.copyWith(
                 fontSize: 20,
-                color: Colors.blue,
+                color: Colors.black,
               ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
