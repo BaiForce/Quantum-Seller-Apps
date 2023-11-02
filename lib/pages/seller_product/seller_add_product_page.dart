@@ -60,6 +60,7 @@ class _SellerAddProductPageState extends State<SellerAddProductPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(title: 'Add Product'),
+      
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(

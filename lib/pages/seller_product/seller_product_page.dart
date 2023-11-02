@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_seller_app/pages/base_widgets/custom_app_bar1.dart';
 
 import '../../pages/base_widgets/custom_app_bar.dart';
 import '../../utils/dimensions.dart';
@@ -15,19 +16,13 @@ class SellerProductPage extends StatefulWidget {
 
 class _SellerProductPageState extends State<SellerProductPage> {
   TextEditingController searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0, // Menghilangkan shadow
-        title: PreferredSize(
-          preferredSize: Size.fromHeight(50),
-          child: Image.asset(
-            Images.logoWithNameImage,
-            height: 50,
-          ),
-        ),
+      appBar: CustomAppBar1(
+        title: '',
+        // Ganti 'Your Title' sesuai dengan judul yang Anda inginkan
       ),
       body: Column(
         children: [
@@ -37,23 +32,22 @@ class _SellerProductPageState extends State<SellerProductPage> {
               color: Theme.of(context).cardColor,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(
-                  Dimensions.paddingSizeDefault,
-                  Dimensions.paddingSizeDefault,
-                  Dimensions.paddingSizeDefault,
-                  Dimensions.paddingSizeDefault,
-                ),
+                    Dimensions.paddingSizeDefault,
+                    Dimensions.paddingSizeDefault,
+                    Dimensions.paddingSizeDefault,
+                    Dimensions.paddingSizeDefault),
                 child: CustomSearchField(
                   controller: searchController,
                   hint: 'Search',
                   prefix: Images.iconsSearch,
-                  iconPressed: () {},
-                  onSubmit: (text) {},
+                  iconPressed: () => () {},
+                  onSubmit: (text) => () {},
                   onChanged: (value) {},
                 ),
               ),
             ),
           ),
-          Expanded(child: AllProductWidget()),
+          Expanded(child: AllProductWidget())
         ],
       ),
     );
