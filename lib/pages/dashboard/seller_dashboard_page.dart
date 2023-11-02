@@ -28,7 +28,7 @@ class _HomePageState extends State<SellerDashboardPage> {
     super.initState();
 
     _screens = [
-      const SellerHomePage(),
+      // const SellerHomePage(),
       const SellerProductPage(),
       Center(
         child: BlocConsumer<LogoutBloc, LogoutState>(
@@ -136,14 +136,14 @@ class _HomePageState extends State<SellerDashboardPage> {
     if (!isSingleVendor) {
       list.add(_barItem(Images.homeImage, 'Home', 0));
 
-      list.add(_barItem(Images.shoppingImage, 'Product', 1));
+      // list.add(_barItem(Images.shoppingImage, 'Product', 1));
 
       list.add(_barItem(Images.moreImage, 'More', 2));
     } else {
       list.add(_barItem(Images.homeImage, 'Home', 0));
-      list.add(_barItem(Images.shoppingImage, 'Product', 1));
+      // list.add(_barItem(Images.shoppingImage, 'Product', 0));
 
-      list.add(_barItem(Images.moreImage, 'More', 2));
+      list.add(_barItem(Images.moreImage, 'More', 1));
     }
 
     return list;

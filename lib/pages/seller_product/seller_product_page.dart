@@ -20,7 +20,7 @@ class _SellerProductPageState extends State<SellerProductPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        elevation: 0,
+        elevation: 0, // Menghilangkan shadow
         title: PreferredSize(
           preferredSize: Size.fromHeight(50),
           child: Image.asset(
