@@ -22,7 +22,6 @@ class _SellerProductPageState extends State<SellerProductPage> {
     return Scaffold(
       appBar: CustomAppBar1(
         title: '',
-        // Ganti 'Your Title' sesuai dengan judul yang Anda inginkan
       ),
       body: Column(
         children: [

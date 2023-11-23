@@ -341,10 +341,15 @@ class SignUpWidgetState extends State<SignUpWidget> {
                 loaded: (data) async {
                   await AuthLocalDatasource().saveAuthData(data);
                   await FirebaseMessagingRemoteDatasource().initNotification();
-                  Navigator.pushAndRemoveUntil(context,
-                      MaterialPageRoute(builder: (context) {
-                    return SellerDashboardPage();
-                  }), (route) => false);
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    PageTransition(
+                      type: PageTransitionType.leftToRight,
+                      duration: const Duration(seconds: 1),
+                      child: const SellerDashboardPage(),
+                    ),
+                    (route) => false,
+                  );
                 },
               );
             },

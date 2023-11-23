@@ -1,4 +1,4 @@
-package com.example.flutter_seller_app
+package com.quantum_seller_app23
 
 import io.flutter.embedding.android.FlutterActivity
 

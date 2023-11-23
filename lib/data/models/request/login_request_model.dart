@@ -24,5 +24,6 @@ class LoginRequestModel {
 
   String toJson() => json.encode(toMap());
 
-  factory LoginRequestModel.fromJson(String source) => LoginRequestModel.fromMap(json.decode(source));
+  factory LoginRequestModel.fromJson(String source) =>
+      LoginRequestModel.fromMap(json.decode(source));
 }

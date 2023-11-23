@@ -21,19 +21,6 @@ class ShopProductWidget extends StatefulWidget {
 }
 
 class _ProductWidgetState extends State<ShopProductWidget> {
-  var renderOverlay = true;
-  var visible = true;
-  var switchLabelPosition = false;
-  var extend = false;
-  var mini = false;
-  var customDialRoot = false;
-  var closeManually = false;
-  var useRAnimation = true;
-  var isDialOpen = ValueNotifier<bool>(false);
-
-  var buttonSize = const Size(35.0, 35.0);
-  var childrenButtonSize = const Size(45.0, 45.0);
-
   @override
   void initState() {
     super.initState();

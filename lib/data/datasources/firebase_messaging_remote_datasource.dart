@@ -62,7 +62,7 @@ class FirebaseMessagingRemoteDatasource {
       body,
       const NotificationDetails(
         android: AndroidNotificationDetails(
-            'com.example.flutter_seller_app', 'seller',
+            'com.quantum_seller_app23', 'seller',
             importance: Importance.max),
         iOS: DarwinNotificationDetails(),
       ),

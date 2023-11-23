@@ -1,15 +1,5 @@
 import 'dart:convert';
 
-// {
-
-//             "name": "Mie gacoan 33",
-//             "description": "Molestias magnam qui rerum laborum.",
-//             "price": 30000,
-//             "image_url": "https://via.placeholder.com/200x200.png/0088ee?text=deserunt",
-//             "category_id": 2
-
-//         }
-
 class ProductRequestModel {
   final String name;
   final String description;

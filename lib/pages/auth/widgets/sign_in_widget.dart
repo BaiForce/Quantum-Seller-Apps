@@ -315,6 +315,23 @@ class SignInWidgetState extends State<SignInWidget> {
                 ],
               ),
             ),
+            // Container(
+            //   margin: const EdgeInsets.only(
+            //       left: 20, right: 20, bottom: 20, top: 30),
+            //   child: BlocConsumer<LoginBloc, LoginState>(
+            //     listener: (context, state) {
+            //       state.maybeWhen(
+            //         orElse: () {},
+            //         loaded: (data) async {
+            //           await AuthLocalDatasource().saveAuthData(data);
+            //           await FirebaseMessagingRemoteDatasource()
+            //               .initNotification();
+            //           Navigator.pushAndRemoveUntil(context,
+            //               MaterialPageRoute(builder: (context) {
+            //             return SellerDashboardPage();
+            //           }), (route) => false);
+            //         },
+
             Container(
               margin: const EdgeInsets.only(
                   left: 20, right: 20, bottom: 20, top: 30),
@@ -326,10 +343,15 @@ class SignInWidgetState extends State<SignInWidget> {
                       await AuthLocalDatasource().saveAuthData(data);
                       await FirebaseMessagingRemoteDatasource()
                           .initNotification();
-                      Navigator.pushAndRemoveUntil(context,
-                          MaterialPageRoute(builder: (context) {
-                        return SellerDashboardPage();
-                      }), (route) => false);
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.leftToRightWithFade,
+                          duration: const Duration(seconds: 1),
+                          child: const SellerDashboardPage(),
+                        ),
+                        (route) => false,
+                      );
                     },
                     error: (message) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(

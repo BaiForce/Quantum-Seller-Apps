@@ -28,7 +28,6 @@ class _HomePageState extends State<SellerDashboardPage> {
     super.initState();
 
     _screens = [
-      // const SellerHomePage(),
       const SellerProductPage(),
       Center(
         child: BlocConsumer<LogoutBloc, LogoutState>(
@@ -93,7 +92,6 @@ class _HomePageState extends State<SellerDashboardPage> {
         controller: _pageController,
         itemCount: _screens.length,
         physics: const BouncingScrollPhysics(),
-        // physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return _screens[index];
         },
@@ -105,15 +103,11 @@ class _HomePageState extends State<SellerDashboardPage> {
     setState(() {
       _pageController.animateToPage(
         pageIndex,
-        duration: Duration(milliseconds: 500), // Adjust the duration as needed
-        curve: Curves.easeInOut, // Use the desired animation curve
+        duration: Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
       );
       _pageIndex = pageIndex;
     });
-    // setState(() {
-    //   _pageController.jumpToPage(pageIndex);
-    //   _pageIndex = pageIndex;
-    // });
   }
 
   BottomNavigationBarItem _barItem(String icon, String? label, int index) {
@@ -135,14 +129,9 @@ class _HomePageState extends State<SellerDashboardPage> {
 
     if (!isSingleVendor) {
       list.add(_barItem(Images.homeImage, 'Home', 0));
-
-      // list.add(_barItem(Images.shoppingImage, 'Product', 1));
-
-      list.add(_barItem(Images.moreImage, 'More', 2));
+      list.add(_barItem(Images.moreImage, 'More', 1));
     } else {
       list.add(_barItem(Images.homeImage, 'Home', 0));
-      // list.add(_barItem(Images.shoppingImage, 'Product', 0));
-
       list.add(_barItem(Images.moreImage, 'More', 1));
     }
 
